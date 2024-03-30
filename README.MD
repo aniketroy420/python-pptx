@@ -9,7 +9,7 @@ Check it yourself :)
 
 ## Screenshots
 
-<img src=https://i.imgur.com/GsFc42F.png?raw=true" width="32%">
+<img src="https://i.imgur.com/XSDSnnS.png?raw=true" width="32%">
 
 
 
