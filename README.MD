@@ -17,7 +17,7 @@ Check it yourself :)
 
 
 ```
-git clone 
+git clone https://github.com/aniketroy420/python-pptx.git
 ```
 
 
