@@ -6,50 +6,56 @@ from pptx.enum.text import PP_ALIGN
 
 prs = Presentation()
 
-# Choose a slide layout (consider using one with a title if desired)
+
 blank_slide_layout = prs.slide_layouts[6]
 slide = prs.slides.add_slide(blank_slide_layout)
 
-# Define image path
+
+# this sets backgrund color of the slide
+# background = slide.background
+# fill = background.fill
+# fill.solid()
+# fill.fore_color.rgb = RGBColor(37, 150, 190)
+
+#  image path
 logo_path = "logo.png"
-paytm_img = "paytm.png"  # Replace with your actual image path
+paytm_img = "paytm.png"  
 lookbeyond_img = "lookbeyond.png"
 logo_left = 0.5  # Adjust these values to reposition the image
-top = 0.5
+top_img = 0.5
 paytm_left = 8
 
-background = slide.background
-fill = background.fill
-fill.solid()
-fill.fore_color.rgb = RGBColor(37, 150, 190)
 
-# left = top = width = height = Inches(1.0)
-# slide.shapes.add_shape(
-#     MSO_SHAPE.OVAL,Inches(paytm_left), Inches(top), width, height
-# )
+#This sets the background image of the slide
+left = top = 0
+img_path = "bg.jpg"
+pic = slide.shapes.add_picture(img_path, left, top, width=prs.slide_width, height=prs.slide_height)
+slide.shapes._spTree.remove(pic._element)
+slide.shapes._spTree.insert(2, pic._element)
 
-# Add the image (without resize parameters for now)
-picture = slide.shapes.add_picture(logo_path, Inches(logo_left), Inches(top),height = Cm(1))
-paytm = slide.shapes.add_picture(paytm_img,Inches(paytm_left), Inches(top),height = Cm(1))
+# Adds the image 
+picture = slide.shapes.add_picture(logo_path, Inches(logo_left), Inches(top_img),height = Cm(1))
+paytm = slide.shapes.add_picture(paytm_img,Inches(paytm_left), Inches(top_img),height = Cm(1))
 lookbeyond= slide.shapes.add_picture(lookbeyond_img,left =0, top = Inches(6.7),width = Inches(10))
 
-## Set textbox position (in inches)
+## Sets textbox position 
 left = Inches(0.5)
 top = prs.slide_height//2.5
 width = 6
 height = 1
 
-# Create textbox object
+# Creates textbox object
 textbox = slide.shapes.add_textbox(left, top,width,height)
 
-# Get text frame (to access text properties)
+# Gets text frame (to access text properties)
 tf = textbox.text_frame
 
-# Add text
+# Add your text here
 text_content = [
     "CONFIDENTIAL",
     "PAYTM JUNE 2023"
 ]
+#Use different properties for the different text available in the above list
 for i in range(len(text_content)):
     p = tf.add_paragraph()
     p.font.bold = True
@@ -62,18 +68,7 @@ for i in range(len(text_content)):
     else:
         p.font.size = Pt(17.5)
     
-
-# for text_line in text_content:
-#     p = tf.add_paragraph()
-#     p.text = text_line
-#     p.font.size = Pt(43.5)
-#     p.font.name = 'Calibri'
-#     p.alignment = PP_ALIGN.LEFT
 print(prs.slide_width)
 print(prs.slide_height)
 # Save the presentation
 prs.save("1.pptx")
-
-
-
-
