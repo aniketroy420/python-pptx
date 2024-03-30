@@ -1,8 +1,8 @@
 
 
-# •	EV LAB: ELECTRONIC VIRTUAL LAB APP
+# •	PPTX : PPT WITH PYTHON
 
-An attempt to create ppt from python, so that we can automate the process of making ppt  
+An attempt to create ppt from python, so that we can automate the process of making ppt.
 
 and much more...
 Check it yourself :)
