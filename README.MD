@@ -12,7 +12,7 @@ Check it yourself :)
 <img src="https://i.imgur.com/ZhXKiqz.png?raw=true" width="32%">
 
 
-## Building from Source
+
 
 
 
